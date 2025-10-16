@@ -2,12 +2,14 @@
   min-height: 100vh;
   display: flex;
   flex-direction: column;
+  background-color: #0f172a;
 }
 
 .header {
-  background-color: #1a1a1a;
+  background-color: #1e293b;
   padding: 1rem 2rem;
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.3);
+  border-bottom: 1px solid #334155;
 }
 
 .nav {
@@ -21,12 +23,13 @@
 .logo {
   font-size: 1.5rem;
   font-weight: bold;
-  color: #4ade80;
+  color: #60a5fa;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 .logo:hover {
-  color: #22c55e;
+  color: #93c5fd;
 }
 
 .nav-links {
@@ -36,17 +39,18 @@
 }
 
 .nav-link {
-  color: rgba(255, 255, 255, 0.87);
+  color: #e2e8f0;
   text-decoration: none;
   padding: 0.5rem 1rem;
-  border-radius: 4px;
-  transition: background-color 0.25s;
+  border-radius: 6px;
+  transition: all 0.2s ease;
   cursor: pointer;
+  font-weight: 500;
 }
 
 .nav-link:hover {
-  background-color: rgba(74, 222, 128, 0.1);
-  color: #4ade80;
+  background-color: #334155;
+  color: #f1f5f9;
 }
 
 .dropdown {
@@ -59,12 +63,13 @@
   position: absolute;
   top: 100%;
   right: 0;
-  background-color: #2a2a2a;
-  min-width: 160px;
-  box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
-  border-radius: 4px;
+  background-color: #1e293b;
+  min-width: 180px;
+  box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.3);
+  border-radius: 8px;
   z-index: 1;
   padding: 0.5rem 0;
+  border: 1px solid #334155;
 }
 
 .dropdown:hover .dropdown-content {
@@ -72,16 +77,17 @@
 }
 
 .dropdown-content a {
-  color: rgba(255, 255, 255, 0.87);
+  color: #e2e8f0;
   padding: 8px 16px;
   text-decoration: none;
   display: block;
-  transition: background-color 0.25s;
+  transition: all 0.2s ease;
+  font-weight: 500;
 }
 
 .dropdown-content a:hover {
-  background-color: rgba(74, 222, 128, 0.1);
-  color: #4ade80;
+  background-color: #334155;
+  color: #f1f5f9;
 }
 
 .main {
@@ -90,13 +96,15 @@
   max-width: 1200px;
   margin: 0 auto;
   width: 100%;
+  background-color: #0f172a;
 }
 
 .footer {
-  background-color: #1a1a1a;
+  background-color: #1e293b;
   text-align: center;
   padding: 1rem;
-  color: rgba(255, 255, 255, 0.6);
+  color: #94a3b8;
+  border-top: 1px solid #334155;
 }
 
 @media (max-width: 768px) {
