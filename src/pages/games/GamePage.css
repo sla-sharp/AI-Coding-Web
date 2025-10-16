@@ -106,6 +106,12 @@
   transform: scale(1.05);
 }
 
+.game-controls {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+}
+
 /* DVD Screensaver Styles */
 .dvd-screensaver {
   display: flex;
@@ -164,6 +170,16 @@
   display: flex;
   align-items: center;
   justify-content: center;
+}
+
+.snake-canvas {
+  background: #0f172a;
+  border: 2px solid #475569;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
+  image-rendering: pixelated;
+  image-rendering: -moz-crisp-edges;
+  image-rendering: crisp-edges;
 }
 
 .game-canvas {

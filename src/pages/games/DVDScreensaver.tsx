@@ -2,11 +2,12 @@ import { Link } from 'react-router-dom'
 import { useState, useEffect, useRef } from 'react'
 import './GamePage.css'
 
-function TicTacToe() {
+function DVDScreensaver() {
   const canvasRef = useRef<HTMLCanvasElement>(null)
   const animationRef = useRef<number>()
   const [hitCornerCount, setHitCornerCount] = useState(0)
-  const [currentColor, setCurrentColor] = useState('#4ade80')
+  const [currentColor, setCurrentColor] = useState('#60a5fa')
+  const [totalBounces, setTotalBounces] = useState(0)
   
   // DVD logo position and velocity
   const dvdRef = useRef({
@@ -18,7 +19,7 @@ function TicTacToe() {
     height: 40
   })
 
-  const colors = ['#4ade80', '#ef4444', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899']
+  const colors = ['#60a5fa', '#ef4444', '#10b981', '#f59e0b', '#8b5cf6', '#ec4899', '#06b6d4', '#84cc16']
 
   useEffect(() => {
     const canvas = canvasRef.current
@@ -40,32 +41,39 @@ function TicTacToe() {
 
       // Check for bounces and corner hits
       let hitCorner = false
+      let bounced = false
+      let hitHorizontalWall = false
+      let hitVerticalWall = false
       
       if (dvd.x <= 0 || dvd.x + dvd.width >= canvas.width) {
         dvd.vx = -dvd.vx
         dvd.x = dvd.x <= 0 ? 0 : canvas.width - dvd.width
-        
-        // Check if hitting corner
-        if ((dvd.y <= 0) || (dvd.y + dvd.height >= canvas.height)) {
-          hitCorner = true
-        }
+        bounced = true
+        hitHorizontalWall = true
       }
       
       if (dvd.y <= 0 || dvd.y + dvd.height >= canvas.height) {
         dvd.vy = -dvd.vy
         dvd.y = dvd.y <= 0 ? 0 : canvas.height - dvd.height
-        
-        // Check if hitting corner
-        if ((dvd.x <= 0) || (dvd.x + dvd.width >= canvas.width)) {
-          hitCorner = true
-        }
+        bounced = true
+        hitVerticalWall = true
       }
 
-      // Handle corner hit
-      if (hitCorner) {
-        setHitCornerCount(prev => prev + 1)
+      // Check for corner hit - when both horizontal and vertical walls are hit in same frame
+      if (hitHorizontalWall && hitVerticalWall) {
+        hitCorner = true
+      }
+
+      // Handle any bounce (wall or corner)
+      if (bounced) {
+        setTotalBounces(prev => prev + 1)
         const newColor = colors[Math.floor(Math.random() * colors.length)]
         setCurrentColor(newColor)
+        
+        // Handle corner hit specifically
+        if (hitCorner) {
+          setHitCornerCount(prev => prev + 1)
+        }
       }
 
       // Draw DVD logo
@@ -97,7 +105,8 @@ function TicTacToe() {
     dvd.vx = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2)
     dvd.vy = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2)
     setHitCornerCount(0)
-    setCurrentColor('#4ade80')
+    setTotalBounces(0)
+    setCurrentColor('#60a5fa')
   }
 
   return (
@@ -122,14 +131,15 @@ function TicTacToe() {
           <h3>About this classic:</h3>
           <ul>
             <li>The DVD logo bounces around the screen</li>
-            <li>It changes color when hitting walls</li>
+            <li>It changes color every time it hits any wall</li>
             <li>Everyone gets excited when it hits a corner!</li>
             <li>This was the ultimate screensaver of the 2000s</li>
           </ul>
           
           <div className="score-board">
+            <h4>Total Bounces: {totalBounces}</h4>
             <h4>Corner Hits: {hitCornerCount}</h4>
-            <h4 style={{ color: hitCornerCount > 0 ? '#4ade80' : 'inherit' }}>
+            <h4 style={{ color: hitCornerCount > 0 ? '#10b981' : 'inherit' }}>
               {hitCornerCount === 0 && "Waiting for corner hit..."}
               {hitCornerCount === 1 && "🎉 First corner hit!"}
               {hitCornerCount > 1 && `🎉 ${hitCornerCount} corner hits!`}
@@ -144,4 +154,4 @@ function TicTacToe() {
   )
 }
 
-export default TicTacToe
+export default DVDScreensaver

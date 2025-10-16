@@ -1,7 +1,7 @@
 import { Routes, Route } from 'react-router-dom'
 import Layout from './components/Layout'
 import Home from './pages/Home'
-import TicTacToe from './pages/games/TicTacToe'
+import DVDScreensaver from './pages/games/DVDScreensaver'
 import Snake from './pages/games/Snake'
 import Memory from './pages/games/Memory'
 import Puzzle from './pages/games/Puzzle'
@@ -12,7 +12,7 @@ function App() {
     <Layout>
       <Routes>
         <Route path="/" element={<Home />} />
-        <Route path="/games/tic-tac-toe" element={<TicTacToe />} />
+        <Route path="/games/dvd-screensaver" element={<DVDScreensaver />} />
         <Route path="/games/snake" element={<Snake />} />
         <Route path="/games/memory" element={<Memory />} />
         <Route path="/games/puzzle" element={<Puzzle />} />

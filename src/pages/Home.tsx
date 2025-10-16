@@ -3,11 +3,11 @@ import './Home.css'
 
 const games = [
   {
-    id: 'tic-tac-toe',
+    id: 'dvd-screensaver',
     title: 'DVD Screensaver',
     description: 'Classic bouncing DVD logo! Watch it hit the corners!',
     emoji: '📺',
-    path: '/games/tic-tac-toe'
+    path: '/games/dvd-screensaver'
   },
   {
     id: 'snake',
