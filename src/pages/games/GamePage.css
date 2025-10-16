@@ -11,14 +11,14 @@
 .back-button {
   display: inline-block;
   margin-bottom: 1rem;
-  color: #646cff;
+  color: #4ade80;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.25s;
 }
 
 .back-button:hover {
-  color: #535bf2;
+  color: #22c55e;
 }
 
 .game-header h1 {
@@ -43,14 +43,14 @@
 }
 
 .game-info {
-  background: rgba(100, 108, 255, 0.1);
-  border: 1px solid rgba(100, 108, 255, 0.2);
+  background: rgba(15, 23, 42, 0.8);
+  border: 1px solid rgba(74, 222, 128, 0.3);
   border-radius: 12px;
   padding: 2rem;
 }
 
 .game-info h3 {
-  color: #646cff;
+  color: #4ade80;
   margin-bottom: 1rem;
   font-size: 1.3rem;
 }
@@ -63,21 +63,21 @@
 
 .game-info li {
   padding: 0.5rem 0;
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   position: relative;
   padding-left: 1.5rem;
 }
 
 .game-info li:before {
   content: "•";
-  color: #646cff;
+  color: #4ade80;
   position: absolute;
   left: 0;
   font-weight: bold;
 }
 
 .score-board {
-  border-top: 1px solid rgba(100, 108, 255, 0.2);
+  border-top: 1px solid rgba(74, 222, 128, 0.3);
   padding-top: 1.5rem;
   margin-top: 1.5rem;
 }
@@ -89,7 +89,7 @@
 }
 
 .restart-button, .shuffle-button {
-  background: linear-gradient(135deg, #646cff, #535bf2);
+  background: linear-gradient(135deg, #4ade80, #22c55e);
   color: white;
   border: none;
   padding: 0.75rem 1.5rem;
@@ -102,8 +102,27 @@
 }
 
 .restart-button:hover, .shuffle-button:hover {
-  background: linear-gradient(135deg, #535bf2, #646cff);
+  background: linear-gradient(135deg, #22c55e, #4ade80);
   transform: scale(1.05);
+}
+
+/* DVD Screensaver Styles */
+.dvd-screensaver {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background: #1a1a1a;
+  border: 3px solid #4ade80;
+  border-radius: 12px;
+  padding: 20px;
+  box-shadow: 0 0 20px rgba(74, 222, 128, 0.3);
+}
+
+.dvd-canvas {
+  background: #0f172a;
+  border: 2px solid #374151;
+  border-radius: 8px;
+  box-shadow: inset 0 0 10px rgba(0, 0, 0, 0.5);
 }
 
 /* Tic Tac Toe Styles */
@@ -117,8 +136,8 @@
 
 .tic-tac-toe-cell {
   aspect-ratio: 1;
-  background: rgba(100, 108, 255, 0.1);
-  border: 2px solid rgba(100, 108, 255, 0.3);
+  background: rgba(74, 222, 128, 0.1);
+  border: 2px solid rgba(74, 222, 128, 0.3);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -130,14 +149,14 @@
 }
 
 .tic-tac-toe-cell:hover {
-  background: rgba(100, 108, 255, 0.2);
-  border-color: #646cff;
+  background: rgba(74, 222, 128, 0.2);
+  border-color: #4ade80;
 }
 
 /* Snake Game Styles */
 .snake-game-board {
   background: #1a1a1a;
-  border: 2px solid rgba(100, 108, 255, 0.3);
+  border: 2px solid rgba(74, 222, 128, 0.3);
   border-radius: 12px;
   padding: 2rem;
   min-height: 400px;
@@ -162,8 +181,8 @@
 
 .memory-card {
   aspect-ratio: 1;
-  background: rgba(100, 108, 255, 0.1);
-  border: 2px solid rgba(100, 108, 255, 0.3);
+  background: rgba(74, 222, 128, 0.1);
+  border: 2px solid rgba(74, 222, 128, 0.3);
   border-radius: 8px;
   display: flex;
   align-items: center;
@@ -175,8 +194,8 @@
 }
 
 .memory-card:hover {
-  background: rgba(100, 108, 255, 0.2);
-  border-color: #646cff;
+  background: rgba(74, 222, 128, 0.2);
+  border-color: #4ade80;
 }
 
 .card-front, .card-back {
@@ -190,12 +209,12 @@
 }
 
 .card-front {
-  background: rgba(100, 108, 255, 0.1);
+  background: rgba(74, 222, 128, 0.1);
   color: rgba(255, 255, 255, 0.7);
 }
 
 .card-back {
-  background: rgba(100, 108, 255, 0.3);
+  background: rgba(74, 222, 128, 0.3);
   color: white;
 }
 
@@ -209,13 +228,13 @@
   background: #1a1a1a;
   padding: 10px;
   border-radius: 12px;
-  border: 2px solid rgba(100, 108, 255, 0.3);
+  border: 2px solid rgba(74, 222, 128, 0.3);
 }
 
 .puzzle-tile {
   aspect-ratio: 1;
-  background: rgba(100, 108, 255, 0.2);
-  border: 1px solid rgba(100, 108, 255, 0.4);
+  background: rgba(74, 222, 128, 0.2);
+  border: 1px solid rgba(74, 222, 128, 0.4);
   border-radius: 6px;
   display: flex;
   align-items: center;
@@ -228,19 +247,19 @@
 }
 
 .puzzle-tile:hover {
-  background: rgba(100, 108, 255, 0.3);
+  background: rgba(74, 222, 128, 0.3);
 }
 
 .puzzle-tile.empty {
   background: transparent;
-  border: 1px dashed rgba(100, 108, 255, 0.3);
+  border: 1px dashed rgba(74, 222, 128, 0.3);
   cursor: default;
 }
 
 /* Quiz Game Styles */
 .quiz-game-board {
-  background: rgba(100, 108, 255, 0.05);
-  border: 1px solid rgba(100, 108, 255, 0.2);
+  background: rgba(15, 23, 42, 0.6);
+  border: 1px solid rgba(74, 222, 128, 0.3);
   border-radius: 12px;
   padding: 2rem;
   max-width: 600px;
@@ -253,7 +272,7 @@
 }
 
 .quiz-progress span {
-  color: rgba(255, 255, 255, 0.8);
+  color: rgba(255, 255, 255, 0.9);
   font-weight: 500;
   margin-bottom: 1rem;
   display: block;
@@ -262,14 +281,14 @@
 .progress-bar {
   width: 100%;
   height: 8px;
-  background: rgba(100, 108, 255, 0.2);
+  background: rgba(74, 222, 128, 0.2);
   border-radius: 4px;
   overflow: hidden;
 }
 
 .progress-fill {
   height: 100%;
-  background: linear-gradient(90deg, #646cff, #535bf2);
+  background: linear-gradient(90deg, #4ade80, #22c55e);
   transition: width 0.3s ease;
 }
 
@@ -278,7 +297,7 @@
 }
 
 .quiz-question h3 {
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.9);
   font-size: 1.3rem;
   line-height: 1.5;
   text-align: center;
@@ -290,11 +309,11 @@
 }
 
 .quiz-option {
-  background: rgba(100, 108, 255, 0.1);
-  border: 2px solid rgba(100, 108, 255, 0.3);
+  background: rgba(74, 222, 128, 0.1);
+  border: 2px solid rgba(74, 222, 128, 0.3);
   border-radius: 8px;
   padding: 1rem;
-  color: rgba(255, 255, 255, 0.87);
+  color: rgba(255, 255, 255, 0.9);
   cursor: pointer;
   transition: all 0.3s ease;
   text-align: left;
@@ -302,8 +321,8 @@
 }
 
 .quiz-option:hover {
-  background: rgba(100, 108, 255, 0.2);
-  border-color: #646cff;
+  background: rgba(74, 222, 128, 0.2);
+  border-color: #4ade80;
 }
 
 /* Mobile Responsive */

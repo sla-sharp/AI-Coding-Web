@@ -19,7 +19,7 @@ function Layout({ children }: LayoutProps) {
             <div className="dropdown">
               <span className="nav-link">Games ▼</span>
               <div className="dropdown-content">
-                <Link to="/games/tic-tac-toe">Tic Tac Toe</Link>
+                <Link to="/games/tic-tac-toe">DVD Screensaver</Link>
                 <Link to="/games/snake">Snake</Link>
                 <Link to="/games/memory">Memory Game</Link>
                 <Link to="/games/puzzle">Puzzle</Link>

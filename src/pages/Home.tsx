@@ -4,9 +4,9 @@ import './Home.css'
 const games = [
   {
     id: 'tic-tac-toe',
-    title: 'Tic Tac Toe',
-    description: 'Classic 3x3 grid game. Get three in a row to win!',
-    emoji: '⭕',
+    title: 'DVD Screensaver',
+    description: 'Classic bouncing DVD logo! Watch it hit the corners!',
+    emoji: '📺',
     path: '/games/tic-tac-toe'
   },
   {

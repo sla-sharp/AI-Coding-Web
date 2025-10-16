@@ -1,32 +1,143 @@
 import { Link } from 'react-router-dom'
+import { useState, useEffect, useRef } from 'react'
 import './GamePage.css'
 
 function TicTacToe() {
+  const canvasRef = useRef<HTMLCanvasElement>(null)
+  const animationRef = useRef<number>()
+  const [hitCornerCount, setHitCornerCount] = useState(0)
+  const [currentColor, setCurrentColor] = useState('#4ade80')
+  
+  // DVD logo position and velocity
+  const dvdRef = useRef({
+    x: 50,
+    y: 50,
+    vx: 3,
+    vy: 2,
+    width: 80,
+    height: 40
+  })
+
+  const colors = ['#4ade80', '#ef4444', '#3b82f6', '#f59e0b', '#8b5cf6', '#ec4899']
+
+  useEffect(() => {
+    const canvas = canvasRef.current
+    if (!canvas) return
+
+    const ctx = canvas.getContext('2d')
+    if (!ctx) return
+
+    const animate = () => {
+      // Clear canvas
+      ctx.fillStyle = '#0f172a'
+      ctx.fillRect(0, 0, canvas.width, canvas.height)
+
+      const dvd = dvdRef.current
+
+      // Update position
+      dvd.x += dvd.vx
+      dvd.y += dvd.vy
+
+      // Check for bounces and corner hits
+      let hitCorner = false
+      
+      if (dvd.x <= 0 || dvd.x + dvd.width >= canvas.width) {
+        dvd.vx = -dvd.vx
+        dvd.x = dvd.x <= 0 ? 0 : canvas.width - dvd.width
+        
+        // Check if hitting corner
+        if ((dvd.y <= 0) || (dvd.y + dvd.height >= canvas.height)) {
+          hitCorner = true
+        }
+      }
+      
+      if (dvd.y <= 0 || dvd.y + dvd.height >= canvas.height) {
+        dvd.vy = -dvd.vy
+        dvd.y = dvd.y <= 0 ? 0 : canvas.height - dvd.height
+        
+        // Check if hitting corner
+        if ((dvd.x <= 0) || (dvd.x + dvd.width >= canvas.width)) {
+          hitCorner = true
+        }
+      }
+
+      // Handle corner hit
+      if (hitCorner) {
+        setHitCornerCount(prev => prev + 1)
+        const newColor = colors[Math.floor(Math.random() * colors.length)]
+        setCurrentColor(newColor)
+      }
+
+      // Draw DVD logo
+      ctx.fillStyle = currentColor
+      ctx.fillRect(dvd.x, dvd.y, dvd.width, dvd.height)
+      
+      // Draw "DVD" text
+      ctx.fillStyle = '#ffffff'
+      ctx.font = 'bold 16px Arial'
+      ctx.textAlign = 'center'
+      ctx.fillText('DVD', dvd.x + dvd.width / 2, dvd.y + dvd.height / 2 + 6)
+
+      animationRef.current = requestAnimationFrame(animate)
+    }
+
+    animate()
+
+    return () => {
+      if (animationRef.current) {
+        cancelAnimationFrame(animationRef.current)
+      }
+    }
+  }, [currentColor])
+
+  const resetAnimation = () => {
+    const dvd = dvdRef.current
+    dvd.x = Math.random() * 200 + 50
+    dvd.y = Math.random() * 150 + 50
+    dvd.vx = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2)
+    dvd.vy = (Math.random() > 0.5 ? 1 : -1) * (Math.random() * 3 + 2)
+    setHitCornerCount(0)
+    setCurrentColor('#4ade80')
+  }
+
   return (
     <div className="game-page">
       <div className="game-header">
         <Link to="/" className="back-button">← Back to Home</Link>
-        <h1>🎯 Tic Tac Toe</h1>
-        <p>Classic 3x3 grid game. Get three in a row to win!</p>
+        <h1>📺 DVD Screensaver</h1>
+        <p>Watch the DVD logo bounce around and celebrate when it hits a corner!</p>
       </div>
       
       <div className="game-container">
-        <div className="tic-tac-toe-board">
-          {Array.from({ length: 9 }, (_, i) => (
-            <div key={i} className="tic-tac-toe-cell">
-              {/* Game logic will be implemented here */}
-            </div>
-          ))}
+        <div className="dvd-screensaver">
+          <canvas 
+            ref={canvasRef}
+            width={600}
+            height={400}
+            className="dvd-canvas"
+          />
         </div>
         
         <div className="game-info">
-          <h3>How to Play:</h3>
+          <h3>About this classic:</h3>
           <ul>
-            <li>Click on any empty cell to place your mark</li>
-            <li>Get three of your marks in a row to win</li>
-            <li>Rows can be horizontal, vertical, or diagonal</li>
-            <li>Game ends in a tie if all cells are filled</li>
+            <li>The DVD logo bounces around the screen</li>
+            <li>It changes color when hitting walls</li>
+            <li>Everyone gets excited when it hits a corner!</li>
+            <li>This was the ultimate screensaver of the 2000s</li>
           </ul>
+          
+          <div className="score-board">
+            <h4>Corner Hits: {hitCornerCount}</h4>
+            <h4 style={{ color: hitCornerCount > 0 ? '#4ade80' : 'inherit' }}>
+              {hitCornerCount === 0 && "Waiting for corner hit..."}
+              {hitCornerCount === 1 && "🎉 First corner hit!"}
+              {hitCornerCount > 1 && `🎉 ${hitCornerCount} corner hits!`}
+            </h4>
+            <button className="restart-button" onClick={resetAnimation}>
+              Reset Position
+            </button>
+          </div>
         </div>
       </div>
     </div>

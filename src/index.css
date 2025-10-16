@@ -40,12 +40,12 @@ p {
 }
 
 a {
-  color: #646cff;
+  color: #4ade80;
   text-decoration: none;
 }
 
 a:hover {
-  color: #535bf2;
+  color: #22c55e;
 }
 
 button {
@@ -62,7 +62,7 @@ button {
 }
 
 button:hover {
-  border-color: #646cff;
+  border-color: #4ade80;
 }
 
 button:focus,
